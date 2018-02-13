@@ -1,11 +1,11 @@
 {
-    "name": "genetsis/seo",
+    "name": "IsraelDominguez/seo",
     "description": "SEO library by Genetsis.",
     "type": "library",
     "authors": [
         {
-            "name": "Ismael",
-            "email": "ismael.salgado@genetsis.com"
+            "name": "Israel",
+            "email": "israel.dominguez.garcia@gmail.com.com"
         }
     ],
     "require": {
