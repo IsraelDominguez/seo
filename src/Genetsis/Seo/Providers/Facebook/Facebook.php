@@ -10,6 +10,11 @@ class Facebook
     private $app_id;
 
     /**
+     * @var string $type
+     */
+    private $type;
+
+    /**
      * @return string
      */
     public function getAppId()
@@ -28,12 +33,39 @@ class Facebook
     }
 
     /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     * @return Facebook
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+
+    /**
      * @inheritDoc
      */
     function __toString()
     {
-        return ($this->getAppId())
-            ? '<meta property="fb:app_id" content="' . $this->getAppId() . '" />'
-            : '';
+        $string = [];
+
+        if ($this->getAppId()) {
+            $string[] = '<meta property="fb:app_id" content="' . $this->getAppId() . '" />';
+        }
+
+        if ($this->getType()) {
+            $string[] = '<meta name="og:type" content="' . $this->getType() . '" />';
+        }
+
+        return implode(PHP_EOL, $string);
     }
 }
